@@ -1,0 +1,203 @@
+/* The body element of the page */
+
+body {
+  /* display: flex; */
+  font-weight: 700;
+  height: 100vh;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: #222;
+  background-image: url('https://source.unsplash.com/1600x900/?landscape'); /*Default background-image*/
+}
+
+/* styling for the card element */
+
+
+.card {
+  justify-content: center;
+  margin: auto;
+  /* margin-bottom: 10px; */
+  background: #000000d0; /*semi opaque*/
+  color: white;
+  padding: 2em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 420px;
+  height: 50%;
+  font-size: 120%;
+  position: relative;
+  margin-top: 10px;
+}
+.forecast {
+  margin: auto;
+  padding: 11px;
+}
+
+/* styling for the head title element */
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    background-image: linear-gradient( -225deg, #f8f9fa 0%, rgb(22 122 198) 29%, #db7e00 67%, #ffc107 100% );
+    background-size: 200% auto;
+    color: #fff;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    font-size: 70px;
+    font-weight: 800;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+/* styling for the search element */
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-bar {
+
+  color: "#FFFEEF";
+}
+
+.day {
+  float: left;
+  background: #000000d0;
+  color: white;
+  padding: 2em;
+  border-radius: 30px;
+  width: 50%;
+  max-width: 220px;
+  font-size: 40%;
+  position: relative;
+  margin: 7px;
+  transition: width 0.9s, height 0.9s, font-size 0.6s;
+ /* opacity: 0; */
+ /*  animation: fade-in 200ms forwards;  */
+ /*   transform: scale(1); */
+ /*  /* on mouse over, increase the size of the element by 25% */ */
+ /*  &:hover { */
+ /*    transform: scale(1.25); */
+ /*  } */
+}
+.day:hover {
+
+width: 240px; /* Increase the width by 20% */
+  height: 240px; /* Increase the height by 20% */
+  font-size:70%; /*Increase font-size*/
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* styling for the button searh bar element */
+
+button {
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  background: #7c7c7c2b;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+input.search-bar {
+  border: none;
+  outline: none;
+  padding: 0.4em 1em;
+  border-radius: 24px;
+  background: #f5f5ff96;
+  color: "#00000F";
+  font-family: inherit;
+  font-size: 105%;
+  width: calc(100% - 100px);
+}
+
+button:hover {
+  background: #7c7c7c6b;
+}
+.search-bar:hover {
+  background: #7A7A7A6B
+}
+
+h2.temp {
+  margin: 0;
+  margin-bottom: 0.4em;
+}
+
+h5 {
+    text-align: center;
+    font-weight: 700;
+    font-family: system-ui;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    /* font-weight: 500; */
+    line-height: 1.2;
+    margin-top: 0.5rem;
+    color: #ffffffdb;
+    text-shadow: 0px 10px 3px black;
+    text-transform: uppercase;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-left: 8px;
+}
+
+/* styling for the weather element */
+
+.weather.loading {
+  visibility: hidden;
+  max-height: 20px;
+  position: relative;
+}
+
+.weather.loading:after {
+  visibility: visible;
+  content: "Loading...";
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+
+/* changing the styleing to fit smaller screens  */
+  @media(max-width: 768px) {
+    #five-day-fore {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+    #column-aside {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+    }
+  }
