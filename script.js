@@ -157,6 +157,17 @@ Thunder: "https://images.unsplash.com/photo-1571878492895-23b0501dbb03?crop=entr
 
 };
 
+const select = document.getElementById("recent-locations");
+const recentLocations = JSON.parse(localStorage.getItem("recentLocations")) || [];
+
+recentLocations.forEach((location) => {
+  const option = document.createElement("option");
+  option.value = location;
+  option.textContent = location;
+  select.appendChild(option);
+});
+
+
 document.querySelector(".search button").addEventListener("click", function () {
   weather.search();
 });
@@ -168,5 +179,5 @@ document
       weather.search();
     }
   });
-weather.fetchWeather("London");
-weather.fetchForecast("London")
+weather.fetchWeather("#");
+weather.fetchForecast("#")
