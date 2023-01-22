@@ -32,9 +32,11 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
-## Mock-Up
+## The Weather Forecast Link
 
-The following image shows the web application's appearance and functionality:
+<a href="https://amarfiguig.github.io/06-Server-Side-APIs/">THE WEATHER FORECAST</a>
+
+## Screenshot of the Weather Forecast  
 
 ![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](https://github.com/amarfiguig/06-Server-Side-APIs/blob/main/Weather%20Forecast.png?raw=true)
 
