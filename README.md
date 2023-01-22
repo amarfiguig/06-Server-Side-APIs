@@ -34,3 +34,17 @@ THEN I am again presented with current and future conditions for that city
 
 ## Mock-Up
 
+The following image shows the web application's appearance and functionality:
+
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](https://github.com/amarfiguig/06-Server-Side-APIs/blob/main/Weather%20Forecast.png?raw=true)
+
+## About
+
+A site to find out the weather with a five-day forecast feature, with a recent of the last search
+And I added changes to the codes to make the background change with the change of location and weather as well
+It also made the site more dynamic in the background screen.
+
+
+
+
+
