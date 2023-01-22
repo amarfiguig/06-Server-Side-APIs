@@ -34,8 +34,8 @@ Thunder: "https://images.unsplash.com/photo-1571878492895-23b0501dbb03?crop=entr
 
   saveLocation: function (city){
     const recentLocations=JSON.parse(localStorage.getItem("recentLocations")) || [];
-    recentLocations.parse(city);
-    localStorage.setItem ("recentLocations"=JSON.stringify(recentLocations));
+    recentLocations.push(city);
+    localStorage.setItem ("recentLocations",JSON.stringify(recentLocations));
 
     this.LoadRecentlocation();
   },
@@ -127,7 +127,7 @@ Thunder: "https://images.unsplash.com/photo-1571878492895-23b0501dbb03?crop=entr
 
   search: function () {
 
-    const searchTerm = document.querySelector(".search_bar").value;
+    const searchTerm = document.querySelector(".search-bar").value;
     if (searchTerm) {
       this.fetchWeather(searchTerm);
       this.fetchForecast(searchTerm)
@@ -190,7 +190,7 @@ LoadRecentlocation: function () {
     select.appendChild(option);
     });
   },
-  oneClickRecentLocations, function (event) {
+  oneClickRecentLocations: function (event) {
    const location = event.target.value;
   
    this.fetchWeather(location);
@@ -214,3 +214,5 @@ document
   });
 
 weather.LoadRecentlocation();
+//weather.fetchWeather("#");
+//weather.fetchForecast("#")
