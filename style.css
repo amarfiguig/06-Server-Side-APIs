@@ -14,6 +14,15 @@ body {
 /* styling for the card element */
 
 
+option {
+    font-weight: 700;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+    color: white;
+    text-align: center;
+}
+
 .card {
   justify-content: center;
   margin: auto;
