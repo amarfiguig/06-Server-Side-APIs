@@ -32,12 +32,23 @@ Thunder: "https://images.unsplash.com/photo-1571878492895-23b0501dbb03?crop=entr
       .then((data) => this.displayWeather(data));
   },
 
+  saveLocation: function (city){
+    const recentLocations=JSON.parse(localStorage.getItem("recentLocations")) || [];
+    recentLocations.parse(city);
+    localStorage.setItem ("recentLocations"=JSON.stringify(recentLocations));
+
+    this.LoadRecentlocation();
+  },
+
   displayWeather: function (data) {
     const { name } = data;
     const { icon, description } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
     this.weatherBackground(description,"current");
+    
+    document.querySelector(".forecast").classList.remove("hidden")
+    
     document.querySelector(".city").innerText = "Weather in " + name;
     document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -113,9 +124,19 @@ Thunder: "https://images.unsplash.com/photo-1571878492895-23b0501dbb03?crop=entr
      "Wind Speed: " +speed + "km/h";
    } 
   },
+
   search: function () {
-    this.fetchWeather(document.querySelector(".search-bar").value);
-    this.fetchForecast(document.querySelector(".search-bar").value)
+
+    const searchTerm = document.querySelector(".search_bar").value;
+    if (searchTerm) {
+      this.fetchWeather(searchTerm);
+      this.fetchForecast(searchTerm)
+
+      this.saveLocation(searchTerm);
+    }
+    else {
+    alert("Please entre a city name");
+    }
   },
 
 
@@ -154,18 +175,30 @@ Thunder: "https://images.unsplash.com/photo-1571878492895-23b0501dbb03?crop=entr
       document.getElementById(id).style.opacity = "0.8";
     }
   },
+LoadRecentlocation: function () {
+  const select = document.getElementById("recent-locations");
+ 
+  select.innerHTML = "";
 
+  const recentLocations = JSON.parse(localStorage.getItem("recentLocations")) || [];
+  
+  recentLocations.forEach((location) => {
+    const option = document.createElement("option");
+    option.value = location;
+    option.textContent = location;
+    option.addEventListener("click", this.oneClickRecentLocations.bind(this));
+    select.appendChild(option);
+    });
+  },
+  oneClickRecentLocations, function (event) {
+   const location = event.target.value;
+  
+   this.fetchWeather(location);
+   this.fetchWeather(location);
+  }
 };
 
-const select = document.getElementById("recent-locations");
-const recentLocations = JSON.parse(localStorage.getItem("recentLocations")) || [];
 
-recentLocations.forEach((location) => {
-  const option = document.createElement("option");
-  option.value = location;
-  option.textContent = location;
-  select.appendChild(option);
-});
 
 
 document.querySelector(".search button").addEventListener("click", function () {
@@ -179,5 +212,5 @@ document
       weather.search();
     }
   });
-weather.fetchWeather("#");
-weather.fetchForecast("#")
+
+weather.LoadRecentlocation();
